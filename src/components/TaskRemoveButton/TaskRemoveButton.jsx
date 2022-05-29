@@ -1,10 +1,11 @@
-import React from 'react';
+import basketSVG from '../../assets/images/icons/basket.svg';
+import { RemoveButton } from './TaskRemoveButton.styled';
 
-const TaskRemoveButton = () => {
+const TaskRemoveButton = ({ disabled }) => {
     return (
-        <div>
-            
-        </div>
+        <RemoveButton disabled={disabled}>
+            <img src={basketSVG} alt="Basket icon" />
+        </RemoveButton>
     );
 };
 
