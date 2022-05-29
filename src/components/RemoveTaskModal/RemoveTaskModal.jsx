@@ -6,7 +6,7 @@ import { RemoveTaskDescriptionBox, RemoveTaskDescriptionItem } from './RemoveTas
 
 const RemoveTaskModal = ({ task, setActive }) => {
 	const dispatch = useDispatch();
-	const confirmRemoveTask = () => dispatch(taskManagerActionCreators.remove(task.id));
+	const removeTask = () => dispatch(taskManagerActionCreators.remove(task.id));
 	
 	return (
 		<Modal title="Удаление задачи" setActive={setActive}>
@@ -15,7 +15,7 @@ const RemoveTaskModal = ({ task, setActive }) => {
 				<RemoveTaskDescriptionItem>Создана: {new Date(task.createdAt).toLocaleString('ca')}</RemoveTaskDescriptionItem>
 				<RemoveTaskDescriptionItem>Вы уверены, что хотите удалить данную задачу? Дальнейшее восстановление невозможно.</RemoveTaskDescriptionItem>
 			</RemoveTaskDescriptionBox>
-			<ModalButton onClick={confirmRemoveTask}>Удалить</ModalButton>
+			<ModalButton onClick={removeTask}>Удалить</ModalButton>
 		</Modal>
 	);
 };
