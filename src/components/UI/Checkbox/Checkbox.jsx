@@ -1,11 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
+import { CheckboxElement } from './Checkbox.styled';
 
-const Checkbox = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const Checkbox = props => {
+	return (
+		<CheckboxElement type="checkbox" {...props} />
+	);
 };
 
 export default Checkbox;
