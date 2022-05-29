@@ -1,8 +1,8 @@
+import TaskManagerPage from './pages/TaskManagerPage/TaskManagerPage';
+
 const App = () => {
 	return (
-		<div className="App">
-
-		</div>
+		<TaskManagerPage />
 	);
 }
 
