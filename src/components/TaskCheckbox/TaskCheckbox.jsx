@@ -4,19 +4,19 @@ import taskManagerActionCreators from '../../store/actionCreators/taskManager';
 import Checkbox from '../UI/Checkbox/Checkbox';
 import { TaskCheckboxLabel, TaskCheckboxText } from './TaskCheckbox.styled';
 
-const TaskCheckbox = ({ id, description, checked }) => {
-	const [isChecked, setChecked] = useState(checked);
+const TaskCheckbox = ({ task }) => {
+	const [isChecked, setChecked] = useState(task.isCompleted);
 	const dispatch = useDispatch();
 
 	const setCompleteStatusTask = () => {
 		setChecked(!isChecked);
-		dispatch(taskManagerActionCreators.setCompleteStatus(id));
+		dispatch(taskManagerActionCreators.setCompleteStatus(task.id));
 	};
 	
 	return (
 		<TaskCheckboxLabel>
 			<Checkbox checked={isChecked} onChange={setCompleteStatusTask} />
-			<TaskCheckboxText>{description}</TaskCheckboxText>
+			<TaskCheckboxText>{task.text}</TaskCheckboxText>
 		</TaskCheckboxLabel>
 	);
 };

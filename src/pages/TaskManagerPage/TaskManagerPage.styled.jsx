@@ -41,8 +41,6 @@ export const TaskManagerDescription = styledComponents.p`
 	font-size: 20px;
 	color: #ffffff;
 
-	line-height: 1.5;
-
 	margin-bottom: 50px;
 
 	@media (max-width: 560px) {

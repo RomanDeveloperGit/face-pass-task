@@ -5,7 +5,39 @@ import ModalButton from '../UI/ModalButton/ModalButton';
 import { AddTaskForm, AddTaskRows, AddTaskRow, AddTaskRowDescription, SelectTest, OptionTest } from './AddTaskModal.styled';
 import Select from '../UI/Select/Select';
 
+const testOptions = [
+	{
+		id: 1,
+		text: 'Сделать математику'
+	},
+	{
+		id: 2,
+		text: 'Решить логарифмы'
+	},
+	{
+		id: 3,
+		text: 'Тригонометрия'
+	},
+	{
+		id: 4,
+		text: 'Решить задачи по методу вспомогательного угла'
+	},
+	{
+		id: 5,
+		text: 'Решить задачи по половинному углу'
+	},
+	{
+		id: 6,
+		text: 'Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана;Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана;Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана'
+	},
+	{
+		id: 7,
+		text: 'Изучить аналитику'
+	}
+];
+
 const AddTaskModal = ({ setActive }) => {
+	const [currentItem, setCurrentItem] = useState(testOptions[0]);
 	const [taskName, setTaskName] = useState('');
 
 	// операции с деревом в useCallback!!!
@@ -14,24 +46,13 @@ const AddTaskModal = ({ setActive }) => {
 		setTaskName(event.target.value);
 	};
 
-	const testOptions = [
-		'Сделать математику',
-		'Решить логарифмы',
-		'Тригонометрия',
-		'Решить задачи по методу вспомогательного угла',
-		'Решить задачи по половинному углу',
-		'Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана;Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана;Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана',
-		'Изучить аналитику'
-	];
-
-
 	return (
 		<Modal title="Добавить задачу" setActive={setActive}>
 			<AddTaskForm>
 				<AddTaskRows>
 					<AddTaskRow>
 						<AddTaskRowDescription>Родительский элемент</AddTaskRowDescription>
-						<Select options={testOptions} />
+						<Select options={testOptions} currentItem={currentItem} setCurrentItem={setCurrentItem} />
 					</AddTaskRow>
 					<AddTaskRow>
 						<AddTaskRowDescription>Текст задачи</AddTaskRowDescription>

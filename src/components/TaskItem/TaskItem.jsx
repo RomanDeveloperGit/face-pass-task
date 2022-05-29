@@ -7,8 +7,8 @@ const TaskItem = ({ task, currentNestingLevel }) => {
 	return (
 		<>
 			<TaskItemContainer currentNestingLevel={currentNestingLevel}>
-				<TaskCheckbox id={task.id} description={task.text} checked={task.isCompleted} />
-				<TaskRemoveButton id={task.id} disabled={!task.isCompleted} />
+				<TaskCheckbox task={task} />
+				<TaskRemoveButton task={task} />
 			</TaskItemContainer>
 			{task.children && <TaskList tasks={task.children} currentNestingLevel={++currentNestingLevel} />}
 		</>

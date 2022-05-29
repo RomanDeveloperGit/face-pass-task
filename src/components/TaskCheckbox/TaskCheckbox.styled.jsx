@@ -17,7 +17,6 @@ export const TaskCheckboxLabel = styledComponents.label`
 
 export const TaskCheckboxText = styledComponents.span`
 	font-size: 16px;
-	line-height: 1.5;
 
 	font-weight: 600;
 	color: #ffffff;

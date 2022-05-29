@@ -7,7 +7,7 @@ import { TaskListContainer, TaskManagerContainer, TaskManagerDescription, TaskMa
 
 const TaskManagerPage = () => {
 	const tasks = useSelector(state => state.taskManager);
-	const [isActiveModal, setActiveModal] = useState(true);
+	const [isActiveModal, setActiveModal] = useState(false);
 
 	const addTask = () => {
 		setActiveModal(true);
