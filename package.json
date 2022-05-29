@@ -1,7 +1,7 @@
 {
-	"name": "",
+	"name": "face-pass",
 	"version": "1.0.0",
-	"description": "",
+	"description": "Test task",
 	"main": "index.js",
 	"scripts": {
 		"start": "webpack-dev-server --mode development",
