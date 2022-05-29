@@ -3,7 +3,7 @@ import styledComponents from 'styled-components';
 export const TaskManagerSection = styledComponents.section`
 	min-height: 100vh;
 
-	background: #121619;
+	background-color: #121619;
 	
 	padding: 100px 0;
 

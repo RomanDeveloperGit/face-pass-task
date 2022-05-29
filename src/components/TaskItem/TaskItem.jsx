@@ -1,7 +1,7 @@
 import TaskCheckbox from '../TaskCheckbox/TaskCheckbox';
 import TaskList from '../TaskList/TaskList';
 import TaskRemoveButton from '../TaskRemoveButton/TaskRemoveButton';
-import { TaskItemContainer, TaskItemLabel, TaskItemText } from './TaskItem.styled';
+import { TaskItemContainer } from './TaskItem.styled';
 
 const TaskItem = ({ task, currentNestingLevel }) => {
 	return (

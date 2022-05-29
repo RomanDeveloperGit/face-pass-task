@@ -11,7 +11,7 @@ const TaskCheckbox = ({ id, description, checked }) => {
 	const setCompleteStatusTask = () => {
 		setChecked(!isChecked);
 		dispatch(taskManagerActionCreators.setCompleteStatus(id));
-	}
+	};
 	
 	return (
 		<TaskCheckboxLabel>
