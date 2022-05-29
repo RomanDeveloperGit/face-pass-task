@@ -1,6 +1,17 @@
 @import url('./assets/scss/reset.scss');
 @import url('./assets/scss/fonts.scss');
 
+body::-webkit-scrollbar {
+	width: 6px;
+
+	background: #121619;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #32B290;
+    border-radius: 10px;
+}
+
 #root {
-    font-family: 'Inter', sans-serif;
+	font-family: 'Inter', sans-serif;
 }
