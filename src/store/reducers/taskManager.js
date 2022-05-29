@@ -3,45 +3,65 @@ import { ADD_TASK, SET_COMPLETE_STATUS_TASK, REMOVE_TASK } from '../actions/task
 const initialState = [
 	{
         id: 0,
-        text: '1',
+        text: 'Сделать математику',
+		isCompleted: false,
+		createdAt: new Date().getTime(),
         children: [
             {
                 id: 1,
-                text: '1 1'
+                text: 'Решить логарифмы',
+				isCompleted: false,
+				createdAt: new Date().getTime() + 1
             },
             {
                 id: 2,
-                text: '1 2',
+                text: 'Тригонометрия',
+				isCompleted: false,
+				createdAt: new Date().getTime() + 2,
                 children: [
                     {
                         id: 3,
-                        text: '1 2 1'
+                        text: 'Решить задачи по методу вспомогательного угла',
+						isCompleted: false,
+						createdAt: new Date().getTime() + 3
                     },
                     {
                         id: 4,
-                        text: '1 2 2'
+                        text: 'Решить задачи по половинному углу',
+						isCompleted: false,
+						createdAt: new Date().getTime() + 4
                     },
                     {
                         id: 5,
-                        text: '1 2 3'
+                        text: 'Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана',
+						isCompleted: false,
+						createdAt: new Date().getTime() + 5
                     },
                     {
                         id: 6,
-                        text: '1 2 4'
+                        text: 'Изучить аналитику',
+						isCompleted: true,
+						createdAt: new Date().getTime() + 6
                     }
                 ]
             },
             {
                 id: 7,
-                text: '1 3'
+                text: 'Решить геометрию',
+				isCompleted: false,
+				createdAt: new Date().getTime() + 7
             }
 		]
     },
     {
         id: 8,
-        text: '2'
+        text: 'Убраться дома',
+		isCompleted: false,
+		createdAt: new Date().getTime() + 8
     }
 ];
+
+// Все стейты обработать функцией, чекающей, выполнены ли все дочерние элементы; если да, то ставим автоматом галочку у родителя.
 
 const taskManagerReducer = (state = initialState, action) => {
 	switch (action.type) {
