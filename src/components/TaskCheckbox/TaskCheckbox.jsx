@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import taskManagerActionCreators from "../../store/actionCreators/taskManager";
-import Checkbox from "../UI/Checkbox/Checkbox";
-import { TaskCheckboxLabel, TaskCheckboxText } from "./TaskCheckbox.styled";
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import taskManagerActionCreators from '../../store/actionCreators/taskManager';
+import Checkbox from '../UI/Checkbox/Checkbox';
+import { TaskCheckboxLabel, TaskCheckboxText } from './TaskCheckbox.styled';
 
 const TaskCheckbox = ({ id, description, checked }) => {
 	const [isChecked, setChecked] = useState(checked);
