@@ -9,8 +9,6 @@ export const SelectCurrentItem = styledComponents.div`
 
 	cursor: pointer;
 
-	line-height: 1.25;
-
 	color: #32B290;
 	background-color: transparent;
 
@@ -18,6 +16,9 @@ export const SelectCurrentItem = styledComponents.div`
 	border-radius: 10px;
 
 	${props => props.isVisibleItems && `
+		color: #0B8968;
+		border-color: #0B8968;
+
 		border-bottom-color: transparent;
 		border-bottom-left-radius: 0;
 		border-bottom-right-radius: 0;
@@ -42,7 +43,10 @@ export const SelectCurrentItem = styledComponents.div`
 
 		transition: .25s;
 
-		${props => props.isVisibleItems && `transform: translateY(-20%) rotate(225deg);`}
+		${props => props.isVisibleItems && `
+			border-color: #0B8968;
+			transform: translateY(-20%) rotate(225deg);
+		`}
 	}
 
 	@media (max-width: 360px) {
@@ -74,10 +78,8 @@ export const SelectItems = styledComponents.div`
 	}
 `;
 
-export const OptionElement = styledComponents.div`
+export const SelectOptionItem = styledComponents.div`
 	cursor: pointer;
-
-	line-height: 1.25;
 
 	color: #32B290;
 	background-color: #1D2125;
@@ -85,6 +87,8 @@ export const OptionElement = styledComponents.div`
 	padding: 8px 24px;
 
 	transition: .5s;
+
+	${props => props.isSelected && `opacity: 0.5;`}
 
 	&:hover {
 		opacity: 0.5;

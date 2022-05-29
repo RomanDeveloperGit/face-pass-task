@@ -1,25 +1,22 @@
 import { useState } from 'react';
-import { SelectContainer, OptionElement, SelectCurrentItem, SelectItems } from './Select.styled';
+import { SelectContainer, SelectOptionItem, SelectCurrentItem, SelectItems } from './Select.styled';
 
-const Select = ({ options }) => {
+const Select = ({ options, currentItem, setCurrentItem }) => {
 	const [isVisibleItems, setVisibleItems] = useState(false);
-	const [currentItem, setCurrentItem] = useState(options[0]);
-
-	const clickCurrentItem = () => {
-		setVisibleItems(!isVisibleItems);
-	};
+	const clickCurrentItem = () => setVisibleItems(!isVisibleItems);
 	
-	const changeOption = event => {
-		setCurrentItem(event.target.innerText)
+	const changeOption = option => {
+		setCurrentItem(option);
 		setVisibleItems(false);
 	};
 
 	return (
 		<SelectContainer>
-			<SelectCurrentItem onClick={clickCurrentItem} isVisibleItems={isVisibleItems}>{currentItem}</SelectCurrentItem>
+			<SelectCurrentItem onClick={clickCurrentItem} isVisibleItems={isVisibleItems}>{currentItem.text}</SelectCurrentItem>
 			{isVisibleItems && <SelectItems isVisibleItems={isVisibleItems}>
-				{/* убрать потом key = index!!! */}
-				{options.map((option, index) => <OptionElement onClick={changeOption} key={index}>{option}</OptionElement>)}
+				{options.map(option => <SelectOptionItem isSelected={option.id === currentItem.id} onClick={() => changeOption(option)} key={option.id}>
+					{option.text}
+				</SelectOptionItem>)}
 			</SelectItems>}
 		</SelectContainer>
 	);
