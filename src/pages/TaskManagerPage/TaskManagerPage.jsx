@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import TaskList from '../../components/TaskList/TaskList';
 import { TaskListContainer, TaskManagerContainer, TaskManagerSection, TaskManagerTitle } from './TaskManagerPage.styled';
