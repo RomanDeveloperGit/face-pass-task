@@ -2,8 +2,10 @@ import { useState } from 'react';
 import Modal from '../UI/Modal/Modal';
 import Input from '../UI/Input/Input';
 import ModalButton from '../UI/ModalButton/ModalButton';
-import { AddTaskForm, AddTaskRows, AddTaskRow, AddTaskRowDescription, SelectTest, OptionTest } from './AddTaskModal.styled';
+import { AddTaskForm, AddTaskRows, AddTaskRow, AddTaskRowDescription } from './AddTaskModal.styled';
 import Select from '../UI/Select/Select';
+import { useDispatch } from 'react-redux';
+import taskManagerActionCreators from '../../store/actionCreators/taskManager';
 
 const testOptions = [
 	{
@@ -37,7 +39,8 @@ const testOptions = [
 ];
 
 const AddTaskModal = ({ setActive }) => {
-	const [currentItem, setCurrentItem] = useState(testOptions[0]);
+	const dispatch = useDispatch();
+	const [parentTask, setParentTask] = useState(testOptions[0]);
 	const [taskName, setTaskName] = useState('');
 
 	// операции с деревом в useCallback!!!
@@ -46,13 +49,19 @@ const AddTaskModal = ({ setActive }) => {
 		setTaskName(event.target.value);
 	};
 
+	const addTask = event => {
+		event.preventDefault();
+
+		dispatch(taskManagerActionCreators.add(parentTask.text, taskName));
+	}
+
 	return (
 		<Modal title="Добавить задачу" setActive={setActive}>
-			<AddTaskForm>
+			<AddTaskForm onSubmit={addTask}>
 				<AddTaskRows>
 					<AddTaskRow>
 						<AddTaskRowDescription>Родительский элемент</AddTaskRowDescription>
-						<Select options={testOptions} currentItem={currentItem} setCurrentItem={setCurrentItem} />
+						<Select options={testOptions} currentItem={parentTask} setCurrentItem={setParentTask} />
 					</AddTaskRow>
 					<AddTaskRow>
 						<AddTaskRowDescription>Текст задачи</AddTaskRowDescription>
