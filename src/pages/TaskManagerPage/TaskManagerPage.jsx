@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import TaskList from '../../components/TaskList/TaskList';
-import { TaskListContainer, TaskManagerContainer, TaskManagerSection, TaskManagerTitle } from './TaskManagerPage.styled';
+import { TaskListContainer, TaskManagerContainer, TaskManagerDescription, TaskManagerSection, TaskManagerTitle } from './TaskManagerPage.styled';
 
 const TaskManagerPage = () => {
 	const tasks = useSelector(state => state.taskManager);
@@ -9,9 +9,11 @@ const TaskManagerPage = () => {
 		<TaskManagerSection>
 			<TaskManagerContainer>
 				<TaskManagerTitle>ToDo-лист</TaskManagerTitle>
-				<TaskListContainer>
-					<TaskList tasks={tasks} currentNestingLevel={0} />
-				</TaskListContainer>
+				{tasks.length ?
+					<TaskListContainer><TaskList tasks={tasks} currentNestingLevel={0} /></TaskListContainer>
+					:
+					<TaskManagerDescription>В настоящий момент задачи отсутствуют.</TaskManagerDescription>
+				}
 			</TaskManagerContainer>
 		</TaskManagerSection>
 	);
