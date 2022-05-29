@@ -28,6 +28,14 @@ export const ModalContainer = styledComponents.div`
 	border-radius: 15px;
 
 	padding: 50px 60px;
+
+	@media (max-width: 576px) {
+		padding: 40px;
+	}
+
+	@media (max-width: 360px) {
+		padding: 30px;
+	}
 `;
 
 export const ModalTop = styledComponents.div`
@@ -36,12 +44,20 @@ export const ModalTop = styledComponents.div`
 	align-items: center;
 
 	margin-bottom: 50px;
+
+	@media (max-width: 460px) {
+		margin-bottom: 30px;
+	}
 `;
 
 export const ModalTitle = styledComponents.h2`
 	font-size: 22px;
 	font-weight: 600;
 	color: #ffffff;
+
+	@media (max-width: 360px) {
+		font-size: 18px;
+	}
 `;
 
 export const ModalCloseButton = styledComponents.img`
