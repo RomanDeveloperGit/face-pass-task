@@ -1,11 +1,12 @@
 import React from 'react';
+import { ButtonElement } from './Button.styled';
 
-const Button = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const Button = ({ children, ...props }) => {
+	return (
+		<ButtonElement {...props}>
+			{children}
+		</ButtonElement>
+	);
 };
 
 export default Button;
