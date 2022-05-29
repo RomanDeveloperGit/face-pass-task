@@ -6,6 +6,10 @@ export const TaskManagerSection = styledComponents.section`
 	background: #121619;
 	
 	padding: 100px 0;
+
+	@media (max-width: 560px) {
+		padding: 80px 0;
+	}
 `;
 
 export const TaskManagerContainer = styledComponents.div`
@@ -13,6 +17,10 @@ export const TaskManagerContainer = styledComponents.div`
 
 	padding: 0 20px;
 	margin: 0 auto;
+
+	@media (max-width: 360px) {
+		padding: 0 8px;
+	}
 `;
 
 export const TaskManagerTitle = styledComponents.h1`
@@ -21,13 +29,27 @@ export const TaskManagerTitle = styledComponents.h1`
 	color: #ffffff;
 
 	margin-bottom: 70px;
+
+	@media (max-width: 560px) {
+		font-size: 30px;
+
+		margin-bottom: 50px;
+	}
 `;
 
 export const TaskManagerDescription = styledComponents.p`
 	font-size: 20px;
 	color: #ffffff;
 
+	line-height: 1.5;
+
 	margin-bottom: 50px;
+
+	@media (max-width: 560px) {
+		font-size: 18px;
+
+		margin-bottom: 30px;
+	}
 `;
 
 export const TaskListContainer = styledComponents.div`
@@ -37,4 +59,8 @@ export const TaskListContainer = styledComponents.div`
 	row-gap: 20px;
 
 	margin-bottom: 50px;
+
+	@media (max-width: 560px) {
+		margin-bottom: 30px;
+	}
 `;

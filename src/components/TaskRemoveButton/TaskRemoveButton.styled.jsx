@@ -1,8 +1,8 @@
 import styledComponents from 'styled-components';
 
 export const RemoveButton = styledComponents.button`
-	width: 36px;
-	height: 36px;
+	min-width: 36px;
+	min-height: 36px;
 
 	display: flex;
 	justify-content: center;
@@ -19,4 +19,9 @@ export const RemoveButton = styledComponents.button`
 			background-color: #C22223;
 		}
 	`}
+
+	@media (max-width: 360px) {
+		min-width: 30px;
+		min-height: 30px;
+	}
 `;
