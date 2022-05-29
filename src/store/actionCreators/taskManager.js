@@ -7,7 +7,7 @@ const taskManagerActionCreators = {
 			
 		}
 	}),
-	setCompleteStatus: () => ({
+	setCompleteStatus: id => ({
 		type: SET_COMPLETE_STATUS_TASK,
 		payload: {
 			

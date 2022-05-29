@@ -1,11 +1,10 @@
 import React from 'react';
+import TaskItem from '../TaskItem/TaskItem';
 
-const TaskList = ({ tasks }) => {
-	console.log(tasks);
-
+const TaskList = ({ tasks, currentNestingLevel }) => {
 	return (
 		<>
-			{tasks.map(task => <div>{task.text}</div>)}
+			{tasks.map(task => <TaskItem task={task} currentNestingLevel={currentNestingLevel} key={task.id} />)}
 		</>
 	);
 };
