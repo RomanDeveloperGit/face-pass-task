@@ -1,11 +1,9 @@
-import React from 'react';
+import { InputElement } from "./Input.styled";
 
-const Input = () => {
-    return (
-        <div>
-            
-        </div>
-    );
+const Input = props => {
+	return (
+		<InputElement {...props} />
+	);
 };
 
 export default Input;
