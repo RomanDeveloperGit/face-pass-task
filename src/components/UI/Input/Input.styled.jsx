@@ -15,4 +15,8 @@ export const InputElement = styledComponents.input`
 		color: #0B8968;
 		border-color: #0B8968;
 	}
+
+	@media (max-width: 360px) {
+		font-size: 14px;
+	}
 `;
