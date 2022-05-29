@@ -1,14 +1,16 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import TaskList from '../../components/TaskList/TaskList';
 import Button from '../../components/UI/Button/Button';
-import taskManagerActionCreators from '../../store/actionCreators/taskManager';
+import AddTaskModal from '../../components/AddTaskModal/AddTaskModal';
 import { TaskListContainer, TaskManagerContainer, TaskManagerDescription, TaskManagerSection, TaskManagerTitle } from './TaskManagerPage.styled';
 
 const TaskManagerPage = () => {
 	const tasks = useSelector(state => state.taskManager);
+	const [isActiveModal, setActiveModal] = useState(true);
 
 	const addTask = () => {
-		console.log('открыть модалку');
+		setActiveModal(true);
 	};
 
 	return (
@@ -21,6 +23,7 @@ const TaskManagerPage = () => {
 					<TaskManagerDescription>В настоящий момент задачи отсутствуют.</TaskManagerDescription>
 				}
 				<Button onClick={addTask}>Добавить задачу</Button>
+				{isActiveModal && <AddTaskModal setActive={setActiveModal} />}
 			</TaskManagerContainer>
 		</TaskManagerSection>
 	);
