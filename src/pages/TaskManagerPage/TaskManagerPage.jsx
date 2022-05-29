@@ -1,10 +1,15 @@
 import React from 'react';
+import TaskList from '../../components/TaskList/TaskList';
+import { TaskManagerContainer, TaskManagerSection, TaskManagerTitle } from './TaskManagerPage.styled';
 
 const TaskManagerPage = () => {
     return (
-        <div>
-            
-        </div>
+        <TaskManagerSection>
+            <TaskManagerContainer>
+                <TaskManagerTitle>ToDo-лист</TaskManagerTitle>
+                <TaskList />
+            </TaskManagerContainer>
+        </TaskManagerSection>
     );
 };
 
