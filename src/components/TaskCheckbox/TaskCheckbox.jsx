@@ -2,8 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import taskManagerActionCreators from "../../store/actionCreators/taskManager";
 import Checkbox from "../UI/Checkbox/Checkbox";
+import { TaskCheckboxLabel, TaskCheckboxText } from "./TaskCheckbox.styled";
 
-const TaskCheckbox = ({ id, checked }) => {
+const TaskCheckbox = ({ id, description, checked }) => {
 	const [isChecked, setChecked] = useState(checked);
 	const dispatch = useDispatch();
 
@@ -13,7 +14,10 @@ const TaskCheckbox = ({ id, checked }) => {
 	}
 	
 	return (
-		<Checkbox checked={isChecked} onChange={setCompleteStatusTask} />
+		<TaskCheckboxLabel>
+			<Checkbox checked={isChecked} onChange={setCompleteStatusTask} />
+			<TaskCheckboxText>{description}</TaskCheckboxText>
+		</TaskCheckboxLabel>
 	);
 };
 
