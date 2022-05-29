@@ -1,11 +1,18 @@
-import React from 'react';
 import TaskList from '../TaskList/TaskList';
-import { TaskItemContainer } from './TaskItem.styled';
+import TaskRemoveButton from '../TaskRemoveButton/TaskRemoveButton';
+import Checkbox from '../UI/Checkbox/Checkbox';
+import { TaskItemContainer, TaskItemLabel, TaskItemText } from './TaskItem.styled';
 
 const TaskItem = ({ task, currentNestingLevel }) => {
     return (
         <>
-			<TaskItemContainer currentNestingLevel={currentNestingLevel}>{task.text}</TaskItemContainer>
+			<TaskItemContainer currentNestingLevel={currentNestingLevel}>
+                <TaskItemLabel>
+                    <Checkbox checked={task.isCompleted} />
+                    <TaskItemText>{task.text}</TaskItemText>
+                </TaskItemLabel>
+                <TaskRemoveButton id={task.id} disabled={!task.isCompleted} />
+            </TaskItemContainer>
 			{task.children && <TaskList tasks={task.children} currentNestingLevel={++currentNestingLevel} />}
 		</>
     );
