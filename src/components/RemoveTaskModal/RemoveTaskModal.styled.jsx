@@ -19,3 +19,9 @@ export const RemoveTaskDescriptionItem = styledComponents.span`
 		font-size: 14px;
 	}
 `;
+
+export const RemoveTaskConfirmText = styledComponents(RemoveTaskDescriptionItem)`
+	font-weight: 600;
+
+	margin-top: 10px;
+`;
