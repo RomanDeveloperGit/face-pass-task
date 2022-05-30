@@ -1,4 +1,4 @@
-import { CheckboxContainer, CheckboxVisual } from "./Checkbox.styled";
+import { CheckboxContainer, CheckboxVisual } from './Checkbox.styled';
 
 const Checkbox = props => {
 	return (

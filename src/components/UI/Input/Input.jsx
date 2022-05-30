@@ -1,4 +1,4 @@
-import { InputElement } from "./Input.styled";
+import { InputElement } from './Input.styled';
 
 const Input = props => {
 	return (

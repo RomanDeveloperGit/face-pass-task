@@ -1,11 +1,11 @@
-import { generateId } from '../../utils/utils';
 import { ADD_TASK, SET_COMPLETE_STATUS_TASK, REMOVE_TASK } from '../actions/taskManager';
+import { generateId } from '../../utils/utils';
 
 const taskManagerActionCreators = {
-	add: (parentText, text) => ({
+	add: (parentId, text) => ({
 		type: ADD_TASK,
 		payload: {
-			parentText,
+			parentId,
 			task: {
 				id: generateId(),
 				text,
@@ -14,14 +14,17 @@ const taskManagerActionCreators = {
 			}
 		}
 	}),
-	setCompleteStatus: id => ({
+	setCompleteStatus: (id, isCompleted) => ({
 		type: SET_COMPLETE_STATUS_TASK,
-		payload: id
+		payload: {
+			id,
+			isCompleted
+		}
 	}),
 	remove: id => ({
 		type: REMOVE_TASK,
 		payload: id
-	}),
+	})
 };
 
 export default taskManagerActionCreators;

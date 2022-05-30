@@ -1,9 +1,9 @@
 import TaskItem from '../TaskItem/TaskItem';
 
-const TaskList = ({ tasks, currentNestingLevel }) => {
+const TaskList = ({ parentTask, tasks, currentNestingLevel }) => {
 	return (
 		<>
-			{tasks.map(task => <TaskItem task={task} currentNestingLevel={currentNestingLevel} key={task.id} />)}
+			{tasks.map(task => <TaskItem parentTask={parentTask} task={task} currentNestingLevel={currentNestingLevel} key={task.id} />)}
 		</>
 	);
 };

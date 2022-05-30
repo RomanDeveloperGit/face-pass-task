@@ -9,8 +9,7 @@ module.exports = (env, argv) => {
 		entry: ['@babel/polyfill', './src/index.js'],
 		output: {
 			path: path.resolve(__dirname, 'dist'),
-			filename: 'bundle.[contenthash].js',
-			publicPath: '/'
+			filename: 'bundle.[contenthash].js'
 		},
 		devServer: {
 			port: 3000,

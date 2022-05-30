@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import basketSVG from '../../assets/images/icons/basket.svg';
 import RemoveTaskModal from '../RemoveTaskModal/RemoveTaskModal';
 import { RemoveButton } from './RemoveTaskButton.styled';
+import basketSVG from '../../assets/images/icons/basket.svg';
 
 const RemoveTaskButton = ({ task }) => {
 	const [isActiveModal, setActiveModal] = useState(false);

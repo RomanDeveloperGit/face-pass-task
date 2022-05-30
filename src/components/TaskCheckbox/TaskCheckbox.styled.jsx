@@ -21,6 +21,8 @@ export const TaskCheckboxText = styledComponents.span`
 	font-weight: 600;
 	color: #ffffff;
 
+	${props => props.isCompleted && `text-decoration: line-through;`}
+
 	@media (max-width: 560px) {
 		font-size: 14px;
 	}
