@@ -2,6 +2,7 @@ import TaskCheckbox from '../TaskCheckbox/TaskCheckbox';
 import TaskList from '../TaskList/TaskList';
 import RemoveTaskButton from '../RemoveTaskButton/RemoveTaskButton';
 import { TaskItemContainer } from './TaskItem.styled';
+import tasksTree from '../../utils/tasksTree';
 
 const TaskItem = ({ task, currentNestingLevel }) => {
 	return (
@@ -10,7 +11,7 @@ const TaskItem = ({ task, currentNestingLevel }) => {
 				<TaskCheckbox task={task} />
 				<RemoveTaskButton task={task} />
 			</TaskItemContainer>
-			{task.children && <TaskList tasks={task.children} currentNestingLevel={++currentNestingLevel} />}
+			{task.children && <TaskList tasks={tasksTree.doubleSort(task.children)} currentNestingLevel={++currentNestingLevel} />}
 		</>
 	);
 };
