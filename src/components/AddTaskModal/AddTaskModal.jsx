@@ -1,59 +1,38 @@
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import taskManagerActionCreators from '../../store/actionCreators/taskManager';
+import tasksTree from '../../utils/tasksTree';
 import Modal from '../UI/Modal/Modal';
 import Input from '../UI/Input/Input';
 import ModalButton from '../UI/ModalButton/ModalButton';
-import { AddTaskForm, AddTaskRows, AddTaskRow, AddTaskRowDescription } from './AddTaskModal.styled';
 import Select from '../UI/Select/Select';
-import { useDispatch } from 'react-redux';
-import taskManagerActionCreators from '../../store/actionCreators/taskManager';
-
-const testOptions = [
-	{
-		id: 1,
-		text: 'Сделать математику'
-	},
-	{
-		id: 2,
-		text: 'Решить логарифмы'
-	},
-	{
-		id: 3,
-		text: 'Тригонометрия'
-	},
-	{
-		id: 4,
-		text: 'Решить задачи по методу вспомогательного угла'
-	},
-	{
-		id: 5,
-		text: 'Решить задачи по половинному углу'
-	},
-	{
-		id: 6,
-		text: 'Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана;Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана;Решить задачи олимпиадного уровня от школы XXX при МГТУ им. Баумана'
-	},
-	{
-		id: 7,
-		text: 'Изучить аналитику'
-	}
-];
+import { AddTaskForm, AddTaskRows, AddTaskRow, AddTaskRowDescription } from './AddTaskModal.styled';
+import { TASK_NO_PARENT_ID, TASK_NO_PARENT_TEXT } from '../../utils/utils';
 
 const AddTaskModal = ({ setActive }) => {
 	const dispatch = useDispatch();
-	const [parentTask, setParentTask] = useState(testOptions[0]);
-	const [taskName, setTaskName] = useState('');
+	const tasks = useSelector(state => state.tasks);
+	const options = [
+		{
+			id: TASK_NO_PARENT_ID,
+			text: TASK_NO_PARENT_TEXT
+		},
+		...tasksTree.getTasksArray(tasks)
+	];
+
+	const [parentTask, setParentTask] = useState(options[0]);
+	const [taskText, setTaskText] = useState('');
 
 	// операции с деревом в useCallback!!!
 
-	const changeInputTaskName = event => {
-		setTaskName(event.target.value);
-	};
+	const changeInputTaskText = event => setTaskText(event.target.value);
 
 	const addTask = event => {
 		event.preventDefault();
 
-		dispatch(taskManagerActionCreators.add(parentTask.text, taskName));
-	}
+		dispatch(taskManagerActionCreators.add(parentTask.id, taskText));
+		setActive(false);
+	};
 
 	return (
 		<Modal title="Добавить задачу" setActive={setActive}>
@@ -61,11 +40,11 @@ const AddTaskModal = ({ setActive }) => {
 				<AddTaskRows>
 					<AddTaskRow>
 						<AddTaskRowDescription>Родительский элемент</AddTaskRowDescription>
-						<Select options={testOptions} currentItem={parentTask} setCurrentItem={setParentTask} />
+						<Select options={options} currentItem={parentTask} setCurrentItem={setParentTask} />
 					</AddTaskRow>
 					<AddTaskRow>
 						<AddTaskRowDescription>Текст задачи</AddTaskRowDescription>
-						<Input value={taskName} onChange={changeInputTaskName} placeholder="Название" />
+						<Input value={taskText} onChange={changeInputTaskText} placeholder="Название" />
 					</AddTaskRow>
 				</AddTaskRows>
 				<ModalButton>Добавить</ModalButton>

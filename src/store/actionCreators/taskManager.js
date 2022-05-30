@@ -6,19 +6,21 @@ const taskManagerActionCreators = {
 		type: ADD_TASK,
 		payload: {
 			parentText,
-			id: generateId(),
-			text,
-			isCompleted: false,
-			createdAt: new Date().getTime()
+			task: {
+				id: generateId(),
+				text,
+				isCompleted: false,
+				createdAt: new Date().getTime()
+			}
 		}
 	}),
 	setCompleteStatus: id => ({
 		type: SET_COMPLETE_STATUS_TASK,
-		payload: { id }
+		payload: id
 	}),
 	remove: id => ({
 		type: REMOVE_TASK,
-		payload: { id }
+		payload: id
 	}),
 };
 
