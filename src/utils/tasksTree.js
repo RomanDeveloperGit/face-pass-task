@@ -8,7 +8,7 @@ const tasksTree = {
 		// потом сортируем по статусу выполнено/не выполнено.
 		// потом сортируем по дате выполнения.
 
-		tree.sort((a, b) => a.createdAt - b.createdAt);
+		tree.sort((a, b) => b.createdAt - a.createdAt);
 		tree.sort((a, b) => a.isCompleted - b.isCompleted);
 		tree.sort((a, b) => a.completedAt - b.completedAt);
 	
